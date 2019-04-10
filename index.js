@@ -1,4 +1,4 @@
-import * as main from './main'
+import { isApolloError } from 'apollo-client';
 
-console.log(main.A)
+console.log(isApolloError);
 

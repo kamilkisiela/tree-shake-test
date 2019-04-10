@@ -4,12 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --entry ./index.js --output bundle.js",
-    "build:prod": "webpack --entry ./index.js --output bundle.prod.js -p",
-    "postbuild:prod": "prettier ./bundle.prod.js > ./bundle.prod-formatted.js"
+    "build": "webpack --entry ./index.js --output bundle.js && rollup -c rollup.config.js",
+    "build:prod": "webpack --entry ./index.js --output bundle.prod.js -p && PROD=true rollup -c rollup.config.js",
+    "postbuild:prod": "prettier ./bundle.prod.js > ./bundle.prod-formatted.js && prettier ./bundle-rollup.prod.js > ./bundle-rollup.prod-formatted.js"
   },
   "dependencies": {
+    "apollo-client": "2.5.1",
+    "graphql": "14.2.1",
     "prettier": "1.16.4",
+    "rollup": "1.9.2",
+    "rollup-plugin-commonjs": "9.3.4",
+    "rollup-plugin-node-resolve": "4.2.2",
+    "rollup-plugin-terser": "4.0.4",
     "webpack": "4.29.6",
     "webpack-cli": "3.3.0"
   }
